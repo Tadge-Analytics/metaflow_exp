@@ -1,0 +1,78 @@
+
+
+
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+sudo echo "deb http://cran.wustl.edu/bin/linux/ubuntu bionic-cran35/" | sudo tee -a /etc/apt/sources.list
+sudo apt update
+sudo apt install r-base r-base-dev
+sudo apt install libcurl4-openssl-dev libxml2-dev libssl-dev
+
+sudo apt-get install python3 python3-pip
+echo "alias python=python3; alias pip=pip3" > ~/.bash_aliases
+source ~/.bash_aliases
+
+
+
+
+sudo apt install -y r-base r-base-core r-recommended r-base-dev gdebi-core build-essential libcurl4-gnutls-dev libxml2-dev libssl-dev
+wget https://rstudio.org/download/latest/stable/server/bionic/rstudio-server-latest-amd64.deb
+sudo gdebi rstudio-server-latest-amd64.deb
+sudo rstudio-server start
+
+
+
+You can access RStudio at http://localhost:8787 in your browser in Windows.
+
+
+
+
+
+
+
+sudo apt-get update -qq && apt-get -y --no-install-recommends install \
+libxml2-dev \
+libcairo2-dev \
+libsqlite3-dev \
+libmariadbd-dev \
+libpq-dev \
+libssh2-1-dev \
+unixodbc-dev \
+libcurl4-openssl-dev \
+libssl-dev
+
+
+
+
+R -e "install.packages('tidyverse')"
+R -e "install.packages('tidymodels')"
+R -e "install.packages('xgboost')"
+R -e "install.packages('lubridate')"
+R -e "install.packages('DBI')"
+R -e "install.packages('janitor')"
+R -e "install.packages('tictoc')"
+R -e "install.packages('janitor')"
+R -e "install.packages('doParallel')"
+R -e "install.packages('remotes')"
+R -e "install.packages('finetune')"
+
+
+sudo apt-get install libsodium-dev
+
+R -e "install.packages('keyring')"
+
+
+
+
+remotes::install_github("netflix/metaflow", subdir = "R")
+metaflow::install_metaflow()
+metaflow::test()
+
+
+
+
+
+
+
+
+
+
