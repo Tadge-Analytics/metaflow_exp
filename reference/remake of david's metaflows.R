@@ -16,6 +16,8 @@ library(tidyverse)
 library(tidymodels)
 library(xgboost)
 library(doParallel)
+library(metaflow)
+
 
 options(tidymodels.dark = TRUE)
 
@@ -159,23 +161,6 @@ tune_hyperparameters = function(self) {
 }
 
 
-###################################################################
-
-
-
-# AWS configuration
-
-aws_region <- "ap-southeast-2"
-ecr_repository <- "nlprmetaflow"
-git_hash <- system("git rev-parse HEAD", intern = TRUE)
-
-# why do we need an docker image????
-nlprmetaflow_image <- glue(
-  "{Sys.getenv('AWS_ACCOUNT_ID')}.dkr.ecr.{aws_region}.amazonaws.com/",
-  "{ecr_repository}:{git_hash}"
-)
-
-
 
 
 ###################################################################
@@ -226,6 +211,20 @@ metaflow("NLPRMetaflow") %>%
 
 
 
+
+
+
+# AWS configuration
+
+aws_region <- "ap-southeast-2"
+ecr_repository <- "nlprmetaflow"
+git_hash <- system("git rev-parse HEAD", intern = TRUE)
+
+# why do we need an docker image????
+nlprmetaflow_image <- glue(
+  "{Sys.getenv('AWS_ACCOUNT_ID')}.dkr.ecr.{aws_region}.amazonaws.com/",
+  "{ecr_repository}:{git_hash}"
+)
 
 
 
